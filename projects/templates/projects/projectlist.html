@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+{% block content %}
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    {% for projlist in projectlist %}
+    <tbody>
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{projlist.title}}</td>
+        <td><a href="{% url 'update-form' projlist.id %}">Edit</a></td>
+        <td><a href="{% url 'delete-form' projlist.id %}">Delete</a></td>
+      </tr>
+    </tbody>
+    {%endfor%}
+  </table>
+{% endblock %}
